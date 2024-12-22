@@ -27,7 +27,7 @@ const App = () => {
       {notes.map((note, index) => {
         return (
           <Note
-            key={1}
+            key={index}
             id={index}
             title={note.title}
             content={note.content}

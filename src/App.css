@@ -22,12 +22,13 @@ header h1 {
   color: #fff;
   font-family: "McLaren", cursive;
   font-weight: 200;
+  text-align: center; /* Ensures it looks good on small screens */
 }
 
 footer {
-  position: absolute;
+  position: relative; /* Changed to avoid overlap on small screens */
   text-align: center;
-  bottom: 0;
+  margin-top: 20px;
   width: 100%;
   height: 2.5rem;
 }
@@ -35,15 +36,17 @@ footer {
 footer p {
   color: #ccc;
 }
+
 .note {
   background: #fff;
   border-radius: 7px;
   box-shadow: 0 2px 5px #ccc;
   padding: 10px;
-  width: 240px;
-  margin: 16px;
-  float: left;
+  width: calc(100% - 32px); /* Default for small screens */
+  max-width: 240px; /* Keeps a fixed width for larger screens */
+  margin: 16px auto; /* Center notes on smaller screens */
 }
+
 .note h1 {
   font-size: 1.1em;
   margin-bottom: 6px;
@@ -69,13 +72,15 @@ footer p {
 
 form.create-note {
   position: relative;
-  width: 480px;
+  width: 100%; /* Adjusts for smaller screens */
+  max-width: 480px; /* Maintains layout for larger screens */
   margin: 30px auto 20px auto;
   background: #fff;
   padding: 15px;
   border-radius: 7px;
   box-shadow: 0 1px 5px rgb(138, 137, 137);
 }
+
 form.create-note input,
 form.create-note textarea {
   width: 100%;
@@ -86,6 +91,7 @@ form.create-note textarea {
   font-family: inherit;
   resize: none;
 }
+
 form.create-note button {
   position: absolute;
   right: 18px;
@@ -99,4 +105,28 @@ form.create-note button {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
   cursor: pointer;
   outline: none;
+}
+
+/* Media Queries for Responsiveness */
+@media (min-width: 600px) {
+  .note {
+    display: inline-block;
+    width: 240px;
+    margin: 16px;
+  }
+
+  footer {
+    position: absolute;
+    bottom: 0;
+  }
+}
+
+@media (max-width: 599px) {
+  header h1 {
+    font-size: 1.5rem;
+  }
+
+  form.create-note {
+    margin: 20px 0;
+  }
 }
