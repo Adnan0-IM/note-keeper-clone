@@ -32,6 +32,8 @@ const App = () => {
     <div>
       <Header />
       <CreateArea onAddNote={addNote} />
+      <div className="notes-container">
+
       {notes.map((note, index) => {
         return (
           <Note
@@ -43,6 +45,7 @@ const App = () => {
           />
         );
       })}
+      </div>
       <Footer />
     </div>
   );

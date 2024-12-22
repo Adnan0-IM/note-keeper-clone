@@ -3,9 +3,11 @@
   margin: 0;
   box-sizing: border-box;
 }
+
 html {
   font-family: "Montserrat", sans-serif;
 }
+
 body {
   background: #eee;
   background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
@@ -23,7 +25,7 @@ header h1 {
   color: #fff;
   font-family: "McLaren", cursive;
   font-weight: 200;
-  /* text-align: left; Ensures it looks good on small screens */
+  text-align: left; /* Ensures it looks good on small screens */
 }
 
 footer {
@@ -43,15 +45,17 @@ footer p {
   border-radius: 7px;
   box-shadow: 0 2px 5px #ccc;
   padding: 10px;
-  width: calc(100% - 32px); /* Default for small screens */
+  width: 100%; /* Default for small screens */
   max-width: 240px; /* Keeps a fixed width for larger screens */
   margin: 16px auto; /* Center notes on smaller screens */
+  position: relative; /* Ensures button stays inside the note */
 }
 
 .note h1 {
   font-size: 1.1em;
   margin-bottom: 6px;
 }
+
 .note p {
   font-size: 1.1em;
   margin-bottom: 10px;
@@ -60,9 +64,9 @@ footer p {
 }
 
 .note button {
-  position: relative;
-  float: right;
-  margin-right: 10px;
+  position: absolute; /* Ensures button stays inside note */
+  top: 10px; /* Position button vertically */
+  right: 10px; /* Position button at the top right corner */
   color: #f5ba13;
   border: none;
   width: 36px;
@@ -110,7 +114,7 @@ form.create-note button {
 
 /* Media Queries for Responsiveness */
 @media (min-width: 600px) {
-   .note {
+  .note {
     display: inline-block;
     width: 240px;
     margin: 16px;
@@ -123,6 +127,15 @@ form.create-note button {
 }
 
 @media (max-width: 599px) {
+  .notes-container {
+    justify-content: space-between;
+  }
+
+  .note {
+    width: calc(50% - 16px); /* Two notes per row */
+    margin-bottom: 16px;
+  }
+
   header h1 {
     font-size: 1.5rem;
     text-align: center; /* Ensures it looks good on small screens */
@@ -130,5 +143,11 @@ form.create-note button {
 
   form.create-note {
     margin: 20px 0;
+  }
+}
+
+@media (max-width: 400px) {
+  .note {
+    width: 100%; /* One note per row on very small screens */
   }
 }
