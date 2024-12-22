@@ -8,6 +8,7 @@ html {
 }
 body {
   background: #eee;
+  background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
   padding: 0 16px;
 }
 
@@ -22,7 +23,7 @@ header h1 {
   color: #fff;
   font-family: "McLaren", cursive;
   font-weight: 200;
-  text-align: center; /* Ensures it looks good on small screens */
+  /* text-align: left; Ensures it looks good on small screens */
 }
 
 footer {
@@ -109,7 +110,7 @@ form.create-note button {
 
 /* Media Queries for Responsiveness */
 @media (min-width: 600px) {
-  .note {
+   .note {
     display: inline-block;
     width: 240px;
     margin: 16px;
@@ -124,6 +125,7 @@ form.create-note button {
 @media (max-width: 599px) {
   header h1 {
     font-size: 1.5rem;
+    text-align: center; /* Ensures it looks good on small screens */
   }
 
   form.create-note {
