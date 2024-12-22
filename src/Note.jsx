@@ -1,10 +1,10 @@
-import React from "react";
+const Note = ({ title, content, handleDelete, id }) => {
 
-const Note = (props) => {
   return (
     <div className="note">
-      <h1>{props.title}</h1>
-      <p>{props.content}</p>
+      <h1>{title}</h1>
+      <p>{content}</p>
+      <button onClick={() => handleDelete(id)}>delete</button>
     </div>
   );
 };
